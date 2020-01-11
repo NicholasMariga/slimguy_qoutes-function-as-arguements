@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'slimqoutes.dart';
 void main() => runApp(MaterialApp(
@@ -11,22 +12,43 @@ class ProgQuotes extends StatefulWidget {
 
 class _ProgQuotesState extends State<ProgQuotes> {
   List<slimqoutes>  slimquote =[
-    slimqoutes(text: '\tTalk is cheap. Show me the code', author: 'Linus Torvalds\n'),
-    slimqoutes(text: '\twhen you don t create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create.', author: 'Lucky stiff\n'),
-    slimqoutes(text: '\tPrograms must be written for people to read, and only incidentally for machines to execute.', author: 'Harold Abelson\n'),
-    slimqoutes(text: '\tAlways code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.',author: 'Rick Cook\n'),
-    slimqoutes(text: '\tTalk is cheap Show me the code', author: 'Linus Torvalds\n'),
-    slimqoutes(text: '\twhen you don t create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create.', author: 'Lucky stiff\n'),
-    slimqoutes(text: '\tPrograms must be written for people to read, and only incidentally for machines to execute.', author: 'Harold Abelson\n'),
-    slimqoutes(text: '\tAlways code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.',author: 'Rick Cook\n'),
-    slimqoutes(text: '\tTalk is cheap. Show me the code', author: 'Linus Torvalds\n'),
-    slimqoutes(text: '\twhen you don t create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create.', author: 'Lucky stiff\n'),
-    slimqoutes(text: '\tPrograms must be written for people to read, and only incidentally for machines to execute.', author: 'Harold Abelson\n'),
-    slimqoutes(text: '\tAlways code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.',author: 'Rick Cook\n'),
-
-
+    slimqoutes(text: '\tTalk is cheap. Show me the code', author: 'Linus Torvalds'),
+    slimqoutes(text: '\twhen you don t create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create.', author: 'Lucky stiff'),
+    slimqoutes(text: '\tPrograms must be written for people to read, and only incidentally for machines to execute.', author: 'Harold Abelson'),
+    slimqoutes(text: '\tAlways code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.',author: 'Rick Cook'),
+    slimqoutes(text: '\tTalk is cheap Show me the code', author: 'Linus Torvalds'),
 
   ];
+  Widget tempQoute(quote){
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0,16.0,16.0,0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              quote.text,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.grey[600],
+                  ),
+            ),
+            SizedBox(height: 6.0),
+            Text(
+              quote.author,
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                fontSize: 14.0,
+                color: Colors.grey[9500],
+
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +60,8 @@ class _ProgQuotesState extends State<ProgQuotes> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: slimquote.map((quote)=>Text('${quote.text}-${quote.author}')).toList(),
+       // children: slimquote.map((quote)=>Text('${quote.text}-${quote.author}')).toList(),
+        children: slimquote.map((quote)=>tempQoute(quote)).toList(),
 
 //        children: slimquotes.map((quote){
 //          return Text(quote);
